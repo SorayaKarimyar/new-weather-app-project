@@ -8,16 +8,31 @@ function refreshWeather(response){
     let windElement= document.querySelector("#wind-speed");
     let timeElement=document.querySelector("#time");
     let date = new Date (response.data.time *10000);
-
-    timeElement.innerHTML= date.getDay(); date.getHours(); date.getMinutes();
-
-    
-   windElement.innerHTML=response.data.wind.speed;
-
-     humidityElement.innerHTML=response.data.temperature.humidity;
-
+    console.log(response.date);
+   
+   timeElement.innerHTML= formatDate(date);
+    windElement.innerHTML=response.data.wind.speed;
+    humidityElement.innerHTML=response.data.temperature.humidity;
     descriptionElement.innerHTML=response.data .condition. description;
 }
+ function formatDate(date){
+  let minutes= date.getMinutes();
+  let hourse = date.gethourse();
+  let days = [
+    "Sunday",
+     "Monday",
+    "Tuesday",
+    "wednessday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
+  let day = days[date.getDay];
+
+  return '${day} ${hourse}: ${minutes}';
+
+
+ }
 
    
 
