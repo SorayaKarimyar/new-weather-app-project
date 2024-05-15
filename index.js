@@ -22,9 +22,12 @@ function searchforminput(event) {
     let cityvalue = document.querySelector(".weather-app-city");
     cityvalue.innerHTML = inputform.value;
     searchCity(inputform.value);
+    searchCity(cityvalue);
 
     
   }
   
   let searchformElement = document.querySelector("#search-form");
   searchformElement.addEventListener("submit", searchforminput);
+ 
+
